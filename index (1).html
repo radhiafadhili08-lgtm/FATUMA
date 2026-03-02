@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O-Level Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>O-Level Student Management System</h1>
+        <p>Form 1 to Form 4 Academic Tracking</p>
+    </header>
+
+    <main class="container">
+        <section id="registration-section" class="card">
+            <h2>Student Registration</h2>
+            <form id="student-form">
+                <div class="form-group">
+                    <input type="text" id="student-name" placeholder="Full Name" required>
+                    <input type="text" id="student-id" placeholder="Student ID (e.g., S001)" required>
+                </div>
+                <div class="form-group">
+                    <select id="student-gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="number" id="student-age" placeholder="Age" min="10" max="25" required>
+                    <select id="student-form-level" required>
+                        <option value="1">Form 1</option>
+                        <option value="2">Form 2</option>
+                        <option value="3">Form 3</option>
+                        <option value="4">Form 4</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Register Student</button>
+            </form>
+        </section>
+
+        <section class="controls card">
+            <input type="text" id="search-input" placeholder="Search by Name or ID...">
+        </section>
+
+        <section id="list-section" class="card">
+            <h2>Registered Students</h2>
+            <table id="student-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Current Form</th>
+                        <th>Avg Score</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="student-tbody"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="performance-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Add Academic Results</h2>
+            <form id="performance-form">
+                <input type="hidden" id="target-student-id">
+                <div class="form-group">
+                    <div>
+                        <label>Mathematics</label>
+                        <input type="number" id="math-score" min="0" max="100" required>
+                    </div>
+                    <div>
+                        <label>English</label>
+                        <input type="number" id="english-score" min="0" max="100" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label>Science</label>
+                        <input type="number" id="science-score" min="0" max="100" required>
+                    </div>
+                    <div>
+                        <label>Social Studies</label>
+                        <input type="number" id="social-score" min="0" max="100" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-success">Save Results</button>
+            </form>
+        </div>
+    </div>
+<div id="view-modal" class="modal">
+    <div class="modal-content" style="width: 80%; max-width: 700px;">
+        <span class="close-btn" onclick="closeViewModal()">&times;</span>
+        <div id="transcript-content">
+            </div>
+        <div style="text-align: right; margin-top: 15px;">
+            <button class="btn-primary" onclick="window.print()" style="width: auto; background: #2c3e50;">
+                🖨️ Print Report
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="data (1).js"></script>
+    <script src="utils (1).js"></script>
+    <script src="main (1).js"></script>
+</body>
+</html>
